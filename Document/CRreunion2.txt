@@ -1,0 +1,32 @@
+entre 5 et 10, c'est sur-exprimé 
+Si ils sont tous surempimé c'est interressant et si il sont tous surexpirmé + un qui sort c'est encore mieux. 
+
+Il faut calculer le fold change pour tous les groupes (T,NT) , (BL,NT), (LUMA,BL) ... 
+
+Volcano plot x : fold-change
+             y : -log10(pv) 
+Rouge sous exprimé et bleu sous exprimé
+On appelle cela l'analyse différencielle
+
+Quelles sont les objectif, quelles sont les résultats attendus. 
+
+Parler de l'orbanisation, comment on pense partager les tâches et comment on va s'organiser dans le texte.
+
+Source lire abstract et introduction. Analyse et exemple de présentation. 
+
+Dire 2/3 mots sur les groupes du cencer du sein, pourquoi ces groupes ? Sinon les gens vont pas pouvoir comprendre.   
+
+Dans analyse de survie : On separe par la mediane (Low et High)
+Package python : lifelines
+Dans R c'est super aussi !
+Test du Khi2 qui est lke
+
+test du log rank c'est un peu la même chose que cox (c'est un cas particulier du modèle de cox)
+Log rank on separe la pop en 2 
+
+La valeur du niveau d'expression de gène impacte la survie (ca s'apparente à une régression linéaire)
+x nivreau d'expression 
+y risque de decès du patient
+C'est en fait le modèle de Cox (il a adapté la regression linéaire aux données de survie : "modèles de cox a risque proportionnel")
+
+Le hasard ratio 

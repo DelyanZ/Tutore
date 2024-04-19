@@ -1,0 +1,10 @@
+Pour le rapport, pour la partie gène expression : mettre du rouge et du bleu directement dans les tableaux excel. 
+ 
+Faire la liste des gènes interessants par sous type moléculaires
+
+Enlever le Cox juste garde le logrank (les p-valueur sont presque pareil)
+Cox vaut mieux faire l'expression elle meme. 
+
+Dans les groupby ajouter le sous type moléculaire
+
+on peut croiser avec les facteurs de risques (pour l'anlyse de survie) tel que le stade du cancer...

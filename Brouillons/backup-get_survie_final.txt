@@ -1,0 +1,31 @@
+get_survie_final(dataset,dataset2, gene, soustype, typesurvie):
+    survie = get_survie(dataset, dataset2, gene, soustype, typesurvie,False)[1]
+    rank = logRank(dataset, dataset2, gene, soustype, typesurvie)
+    cox, HR = Cox(dataset, dataset2, gene, soustype, typesurvie)
+    if(typesurvie == "OS"):
+        x = "os_months" 
+        y = "os_censor"
+    else:
+        x = "dfs_months"
+        y = "dfs_censor"
+    mediane = np.percentile(survie["value"],50)
+    kmf1 = KaplanMeierFitter()
+    kmf2 = KaplanMeierFitter()
+    high = survie[survie["value"] > mediane]
+    low = survie[survie["value"] < mediane]
+    kmf1.fit(durations=high[x], event_observed=high[y])
+    kmf2.fit(durations=low[x], event_observed=low[y])
+    plt.figure(figsize=(10, 6))
+    kmf2.plot_survival_function(label=f'High n = {high.shape[0]}',color='red',ci_alpha=0)
+    kmf1.plot_survival_function(label=f'Low n = {low.shape[0]}',color='#40E0D0',ci_alpha=0)
+    plt.xlim(0,min(len(low),len(high)))
+    plt.title(f'{gene} - {dataset} - {soustype}\nCox p-value = {cox}\nLogRank p-value = {rank}\nHazard Ratio = {HR}') 
+    # plt.title(f'EZH2 - E-MTAB-365\ncox p-value : {res['p'].values}\nlogrank p-value : {res_logr.summary['p']}')
+    plt.xlabel('Time in month')
+    if(typesurvie == "OS"):
+        plt.ylabel('Overall Survival')
+    else: 
+        plt.ylabel('Disease Free Survival')
+    plt.legend()
+    # On retourne à la fois le graphique et le tableau des données de survie
+    return plt,rank,cox,HR

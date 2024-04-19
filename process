@@ -1,0 +1,16 @@
+// Critères de Significativité
+digraph {
+	A [label="Début"]
+	B [label="FDR_logrank ≤ 0.09
+pval_logRank ≤ 0.04"]
+	C [label="FDR_Cox ≤ 0.09
+pval_Cox ≤ 0.04"]
+	D [label=Significative color=green]
+	E [label="Non Significative" color=red]
+	A -> B [label="Vérifier"]
+	A -> C [label="Vérifier"]
+	B -> D [label=Oui]
+	C -> D [label=Oui]
+	B -> E [label=Non]
+	C -> E [label=Non]
+}
